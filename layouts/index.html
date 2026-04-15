@@ -1,32 +1,50 @@
 {{ define "main" }}
 {{ partial "nav.html" . }}
 
-<div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
   
-  <header style="display: flex; align-items: center; justify-content: space-between; min-height: 80vh; flex-wrap: wrap; gap: 40px;">
-    <div style="flex: 1; min-width: 300px;">
-      <h1 style="font-size: 4rem; line-height: 1.1; margin-bottom: 20px;">Explorer le <span style="color: var(--primary-color);">Futur Digital</span>.</h1>
-      <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">Je suis Mathe, développeur d'interfaces immersives. Bienvenue dans mon univers construit sous Hugo & Netlify.</p>
-      <a href="#projets" class="btn-primary">Découvrir mes travaux</a>
+  <header style="display: flex; align-items: center; min-height: 90vh; flex-wrap: wrap; gap: 60px; padding: 40px 0;">
+    <div style="flex: 1.2; min-width: 350px;">
+      <span style="color: var(--primary-color); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem;">Disponible en Freelance</span>
+      <h1 style="font-size: 5rem; margin: 15px 0; color: #1e272e;">Mathe <br><span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Creative Dev.</span></h1>
+      <p style="font-size: 1.2rem; line-height: 1.8; color: #57606f; max-width: 500px;">
+        Je fusionne l'art du design avec la rigueur du code pour créer des interfaces qui respirent.
+      </p>
+      <div style="margin-top: 40px; display: flex; gap: 20px; align-items: center;">
+        <a href="#projets" class="btn-primary">Voir mon travail</a>
+        <a href="/admin/" style="color: var(--text-color); font-weight: 600; text-decoration: none;">Accès CMS →</a>
+      </div>
     </div>
     
-    <div style="flex: 1; min-width: 300px; position: relative;">
-      <div style="padding: 15px; background: var(--bg-color); border-radius: 30px; box-shadow: var(--shadow);">
+    <div style="flex: 0.8; min-width: 350px;">
         <img src="https://cdn.unitycms.io/images/1yxh34BSazwAzCQUBGdJze.jpg" 
-             style="width: 100%; border-radius: 20px; display: block;" alt="Futuristic City">
-      </div>
+             class="floating-img" 
+             style="width: 100%; border-radius: 40px;" alt="Futur">
     </div>
   </header>
 
-  <section id="projets" style="padding: 100px 0;">
-    <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 50px;">Derniers Projets</h2>
+  <section style="padding: 60px 0; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+    {{ range (slice "Hugo SSG" "React" "Netlify" "Strapi API" "UI Design") }}
+      <div style="padding: 15px 30px; border-radius: 15px; box-shadow: var(--shadow); font-weight: 600; font-size: 0.9rem; background: #fff;">{{ . }}</div>
+    {{ end }}
+  </section>
+
+  <section id="projets" style="padding: 120px 0;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px;">
+        <h2 style="font-size: 3rem; margin: 0;">Portfolio de <br>Sélection</h2>
+        <p style="max-width: 300px; color: #777; font-size: 0.9rem;">Une collection de projets construits avec passion et performance.</p>
+    </div>
+
     <div class="projects-grid">
       {{ range (where .Site.RegularPages "Section" "posts") }}
       <div class="project-card">
-        <div style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; color: var(--primary-color); margin-bottom: 10px;">Case Study</div>
-        <h3 style="margin-top: 0;">{{ .Title }}</h3>
-        <p style="font-size: 0.9rem; color: #777;">{{ .Summary | truncate 120 }}</p>
-        <a href="{{ .Permalink }}" style="text-decoration: none; font-weight: bold; color: var(--text-color); border-bottom: 2px solid var(--primary-color);">Explorer →</a>
+        <div style="width: 40px; height: 4px; background: var(--primary-color); margin-bottom: 20px;"></div>
+        <h3 style="font-size: 1.5rem;">{{ .Title }}</h3>
+        <p style="color: #666; font-size: 0.95rem; margin-bottom: 25px;">{{ .Summary | truncate 110 }}</p>
+        <a href="{{ .Permalink }}" style="text-decoration: none; font-weight: 700; color: var(--primary-color); display: flex; align-items: center; gap: 10px;">
+            DÉTAILS DU PROJET 
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
       </div>
       {{ end }}
     </div>
@@ -34,7 +52,15 @@
 
 </div>
 
-<footer style="text-align: center; padding: 50px; color: #999; font-size: 0.8rem;">
-  &copy; 2026 Mathe Portfolio — Propulsé par la vitesse de Hugo.
+<footer style="background: #1e272e; color: white; padding: 100px 0 40px 0; margin-top: 100px;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center; padding: 0 20px;">
+        <h2 style="color: white; font-size: 3rem;">Travaillons ensemble.</h2>
+        <p style="opacity: 0.6; margin-bottom: 40px;">Basé à Paris, disponible partout dans le monde.</p>
+        <a href="mailto:ton-email@exemple.com" class="btn-primary" style="background: white; color: black !important;">Dire Bonjour 👋</a>
+        <div style="margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.5;">
+            <span>&copy; 2026 Mathe Studio</span>
+            <span>Hugo + Netlify CMS Architecture</span>
+        </div>
+    </div>
 </footer>
 {{ end }}
