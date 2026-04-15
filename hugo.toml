@@ -2,3 +2,18 @@ baseURL = 'https://example.org/'
 languageCode = 'fr-fr'
 title = 'Mon Site Hugo Exo'
 theme = 'ananke'
+
+[[menu.main]]
+    name = "Accueil"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Projets"
+    url = "/#projets"
+    weight = 2
+
+[[menu.main]]
+    name = "Admin"
+    url = "/admin/"
+    weight = 3

@@ -1,0 +1,7 @@
+<nav style="position: sticky; top: 20px; z-index: 1000; display: flex; justify-content: center;">
+  <div style="background: rgba(240, 243, 246, 0.8); backdrop-filter: blur(10px); padding: 10px 30px; border-radius: 50px; box-shadow: var(--shadow); display: flex; gap: 20px;">
+    {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" style="text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 0.9rem; transition: 0.3s;">{{ .Name }}</a>
+    {{ end }}
+  </div>
+</nav>

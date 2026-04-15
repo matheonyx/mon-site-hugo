@@ -1,27 +1,40 @@
 {{ define "main" }}
-<div style="max-width: 1000px; margin: 0 auto; padding: 50px 20px;">
+{{ partial "nav.html" . }}
+
+<div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
   
-  <section style="text-align: center; margin-bottom: 80px;">
-    <h1>Bonjour, je suis Mathe 👋</h1>
-    <p style="font-size: 1.5rem;">Expert Hugo & Développeur Full-Stack</p>
-    <a href="#projets" class="btn-primary">Voir mes projets</a>
+  <header style="display: flex; align-items: center; justify-content: space-between; min-height: 80vh; flex-wrap: wrap; gap: 40px;">
+    <div style="flex: 1; min-width: 300px;">
+      <h1 style="font-size: 4rem; line-height: 1.1; margin-bottom: 20px;">Explorer le <span style="color: var(--primary-color);">Futur Digital</span>.</h1>
+      <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">Je suis Mathe, développeur d'interfaces immersives. Bienvenue dans mon univers construit sous Hugo & Netlify.</p>
+      <a href="#projets" class="btn-primary">Découvrir mes travaux</a>
+    </div>
+    
+    <div style="flex: 1; min-width: 300px; position: relative;">
+      <div style="padding: 15px; background: var(--bg-color); border-radius: 30px; box-shadow: var(--shadow);">
+        <img src="https://cdn.unitycms.io/images/1yxh34BSazwAzCQUBGdJze.jpg" 
+             style="width: 100%; border-radius: 20px; display: block;" alt="Futuristic City">
+      </div>
+    </div>
+  </header>
+
+  <section id="projets" style="padding: 100px 0;">
+    <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 50px;">Derniers Projets</h2>
+    <div class="projects-grid">
+      {{ range (where .Site.RegularPages "Section" "posts") }}
+      <div class="project-card">
+        <div style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; color: var(--primary-color); margin-bottom: 10px;">Case Study</div>
+        <h3 style="margin-top: 0;">{{ .Title }}</h3>
+        <p style="font-size: 0.9rem; color: #777;">{{ .Summary | truncate 120 }}</p>
+        <a href="{{ .Permalink }}" style="text-decoration: none; font-weight: bold; color: var(--text-color); border-bottom: 2px solid var(--primary-color);">Explorer →</a>
+      </div>
+      {{ end }}
+    </div>
   </section>
 
-  <h2 id="projets">Mes Dernières Créations</h2>
-  <div class="projects-grid">
-    {{ range (where .Site.RegularPages "Section" "posts") }}
-    <div class="project-card">
-      <h3>{{ .Title }}</h3>
-      <p>{{ .Summary | truncate 100 }}</p>
-      <a href="{{ .Permalink }}" style="color: var(--primary-color); font-weight: bold;">Lire la suite →</a>
-    </div>
-    {{ end }}
-  </div>
+</div>
 
-  <div style="text-align: center; margin-top: 100px;">
-    <img src="https://cdn.unitycms.io/images/1yxh34BSazwAzCQUBGdJze.jpg" 
-         alt="Illustration de ville futuriste numérique Mathe Portfolio" 
-         style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow);">
-  </div>
-  </div>
+<footer style="text-align: center; padding: 50px; color: #999; font-size: 0.8rem;">
+  &copy; 2026 Mathe Portfolio — Propulsé par la vitesse de Hugo.
+</footer>
 {{ end }}
