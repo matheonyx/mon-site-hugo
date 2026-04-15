@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'fr-fr'
 title = 'Mon Site Hugo Exo'
-theme = 'ananke'
+
 
 [[menu.main]]
     name = "Accueil"
