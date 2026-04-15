@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div style="max-width: 1000px; margin: 0 auto; padding: 50px 20px;">
+  <section style="text-align: center; margin-bottom: 80px;">
+    <h1>Bonjour, je suis Matheo</h1>
+    <p style="font-size: 1.5rem;">Y que fueeeeeeeeee</p>
+    <a href="#projets" class="btn-primary">Voir mes projets</a>
+  </section>
+
+  <h2 id="projets">Mes Dernières Créations</h2>
+  <div class="projects-grid">
+    {{ range (where .Site.RegularPages "Section" "posts") }}
+    <div class="project-card">
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Summary | truncate 100 }}</p>
+      <a href="{{ .Permalink }}" style="color: var(--primary-color); font-weight: bold;">Lire la suite →</a>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
